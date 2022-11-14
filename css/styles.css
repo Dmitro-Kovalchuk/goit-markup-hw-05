@@ -4,6 +4,8 @@
   --hat-color: #ffffff;
   --feature-color: #757575;
   --background-section: #2f303a;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 250ms;
 }
 
 body {
@@ -104,8 +106,9 @@ address {
   line-height: 1.14;
   letter-spacing: 0.02em;
   padding: 32px 0;
-
   color: var(--text-color);
+  position: relative;
+  transition: color var(--duration) var(--timing-function);
 }
 
 .nav-link:hover,
@@ -133,17 +136,34 @@ address {
   gap: 50px;
 }
 
-.nav-link::after {
+.nav-link.current::after,
+.nav-link.current::after {
   content: "";
-    width: 48px;
-    height: 4px;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 4px;
   background-color: var(--attention-color);
   border-radius: 2px;
-} 
+  bottom: 0;
+}
+
+.nav-link::after {
+  content: "";
+  display: block;
+  transition: background-color var(--duration) var(--timing-function);
+}
 
 .nav-link:hover::after,
 .nav-link:focus::after {
+  content: "";
   display: block;
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: var(--attention-color);
+  border-radius: 2px;
+  bottom: 0;
 }
 
 .nav-contacts {
@@ -162,6 +182,7 @@ address {
   padding: 32px 0;
 
   color: var(--feature-color);
+  transition: color var(--duration) var(--timing-function);
 }
 
 .contact-icons {
@@ -200,6 +221,10 @@ address {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   color: var(--hat-color);
   background-color: var(--attention-color);
+
+  transition-property: background-color, color, box-shadow, border-color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
 
 .hero-btn:hover,
@@ -327,6 +352,8 @@ address {
   height: 100%;
   border-radius: 50%;
   fill: #afb1b8;
+  transition: fill var(--duration) var(--timing-function),
+    background-color var(--duration) var(--timing-function);
 }
 
 .socials-link:hover,
@@ -364,6 +391,8 @@ address {
   fill: #afb1b8;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+  transition: border var(--duration) var(--timing-function),
+    fill var(--duration) var(--timing-function);
 }
 
 .client-link:hover,
@@ -416,6 +445,7 @@ address {
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.6);
+  transition: color var(--duration) var(--timing-function);
 }
 
 .nav-link:hover,
@@ -459,6 +489,8 @@ address {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
   fill: var(--hat-color);
+  transition: fill var(--duration) var(--timing-function),
+    background-color var(--duration) var(--timing-function);
 }
 
 .join-link:hover,
@@ -486,6 +518,9 @@ address {
   background-color: #f5f4fa;
   border-radius: 4px;
   border-color: transparent;
+  transition-property: border-color, background-color, color, box-shadow;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
 
 .filter-btn.active {
@@ -540,6 +575,7 @@ address {
   width: 370px;
   background-color: var(--hat-color);
   border: 1px solid #eeeeee;
+  transition: box-shadow var(--duration) var(--timing-function);
 }
 
 .portfolio-item:hover,
