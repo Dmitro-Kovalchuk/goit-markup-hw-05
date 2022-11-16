@@ -229,8 +229,8 @@ address {
 
 .hero-btn:hover,
 .hero-btn:focus {
-  background-color: var(--hat-color);
-  color: var(--attention-color);
+  background-color: #188ce8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 .hero-container {
@@ -360,6 +360,7 @@ address {
 }
 
 .activity-overlay-text {
+  font-weight: 700;
   line-height: 16px;
   text-align: center;
   letter-spacing: 0.03em;
@@ -589,7 +590,7 @@ address {
   background-color: #f5f4fa;
   border-radius: 4px;
   border-color: transparent;
-  transition-property: border-color, background-color, color, box-shadow;
+  transition-property: border-color, color, box-shadow;
   transition-duration: var(--duration);
   transition-timing-function: var(--timing-function);
 }
